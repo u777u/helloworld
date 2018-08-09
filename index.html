@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=yes, minimal-ui">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		
+		<meta http-equiv="Content-Security-Policy" content="default-src * gap://ready file:; style-src 'self' 'unsafe-inline'; img-src 'self' data:; script-src * 'unsafe-inline' 'unsafe-eval'">
+
+		<title>StellarFaucet</title>
+		<!-- Path to Framework7 Library CSS-->
+		<link rel="stylesheet" href="vendors/framework7/dist/css/framework7-17.min.css">
+		<link rel="stylesheet" href="vendors/framework7/dist/css/framework7-17.color.min.css">
+		<link rel="stylesheet" href="vendors/framework7/dist/css/framework7.keypad.min.css">
+		<!-- Path to your custom app styles-->
+
+		<!-- Development -->
+		<link rel="stylesheet" href="static/fira-fonts.css">
+		<link rel="stylesheet" href="static/my-styles.css">
+
+		<!-- Production -->
+		<!-- <link rel="stylesheet" href="static/apps.min.css"> -->
+	</head>
+	<body class="theme-amber">
+		<div id="overlay-preloader" class="hidden">
+			<img class="corner" src="static/blue.png" alt="Blue" style="top: 0;" width="120.25px" height="106px">
+			<div class="overlay-main">
+				<center>
+					<span class="logo-text"><span class="logo-text--title">Nyan</span>Dev</span><br>
+					<span>Build with ❤️ from Indonesia</span>
+				</center>
+				<div align="center" style="padding: 20px 0;">
+					<span class="update" style="display:none;font-size:4em;font-weight:600;">┌( ಠ_ಠ)┘</span>
+					<span class="sad" style="display:none;font-size:6em;font-weight:600;color:#616161;">ಥ_ಥ</span>
+					<span class="maintenis" style="display:none;font-size:3em;font-weight:600;">(┛◉Д◉)┛彡 </span>
+					<h4>
+						<img src="static/tail-spin.svg" width="32" alt=""><br>
+						<span id="indicator-state">Loading..</span>
+					</h4>
+					<button class="button button-fill" style="display: none;">Try Again</button>
+				</div>
+			</div>
+			<svg class="waves-effect" viewbox="0 0 100 25">
+				<path fill="#2196f3" opacity="0.5" d="M0 30 V15 Q30 3 60 15 V30z" />
+				<path fill="#2196f3" d="M0 30 V12 Q30 17 55 12 T100 11 V30z" />
+			</svg>
+		</div>
+		<div class="statusbar-overlay"></div>
+		<div class="panel-overlay"></div>
+		<!-- Panel -->
+		<div class="panel panel-left panel-cover">
+			<div class="view navbar-fixed">
+				<div class="pages">
+					<div data-page="panel-left" class="page">
+						<div class="navbar">
+							<div class="navbar-inner">
+								<div class="center">StellarFaucet</div>
+							</div>
+						</div>
+						<div class="page-content color-white">
+							<div class="content-block">
+								<span class="color-gray" data-lang="current_earning">Stellar Balance</span>
+								<h2 class="no-margin earningValue">0</h2>
+								<span class="color-gray" data-lang="referral_earn">Current Referral Earnings</span>
+								<h2 class="no-margin earningRefValue">0 XLM</h2>
+								<span class="color-gray" data-lang="current_address">Current Address</span>
+								<h2 class="no-margin addressStellar"></h2>
+							</div>
+							<div class="list-block">
+								<ul>
+									<li><a href="news.html" class="item-link close-panel">
+											<div class="item-content">
+												<div class="item-media">
+													<i class="icon icon-notif"></i>
+												</div>
+												<div class="item-inner">
+													<div class="newsListItem item-title" data-lang="news">News </div>
+												</div>
+											</div>
+									</a></li>
+									<li><a href="donate.html" class="item-link close-panel">
+											<div class="item-content">
+												<div class="item-media">
+													<i class="icon icon-monetize"></i> 
+												</div>
+												<div class="item-inner">
+													<div class="item-title" data-lang="donate_us">Donate Us</div>
+												</div>
+											</div>
+									</a></li>
+									<li><a href="authfactory.html" class="item-link close-panel">
+											<div class="item-content">
+												<div class="item-media">
+													<i class="icon icon-lock"></i> 
+												</div>
+												<div class="item-inner">
+													<div class="item-title" data-lang="help_app">2FA</div>
+												</div>
+											</div>
+									</a></li>
+									<li><a href="help.html" class="item-link close-panel">
+											<div class="item-content">
+												<div class="item-media">
+													<i class="icon icon-help"></i> 
+												</div>
+												<div class="item-inner">
+													<div class="item-title" data-lang="help_app">Help</div>
+												</div>
+											</div>
+									</a></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- Views-->
+		<div class="views">
+			<!-- Your main view, should have "view-main" class-->
+			<div class="view view-main">
+				<!-- Pages, because we need fixed-through navbar and toolbar, it has additional appropriate classes-->
+				<div class="pages navbar-through toolbar-through">
+					<!-- Page, data-page contains page name-->
+					<div data-page="index" class="page toolbar-fixed navbar-fixed">
+						<div class="navbar">
+							<div class="navbar-inner">
+								<!-- We have home navbar without left link-->
+								<div class="left">
+									<!-- Right link contains only icon - additional "icon-only" class-->
+									<a href="#" class="link icon-only open-panel"> <i class="icon f7-icons icon-bars"></i></a>
+								</div>
+								<div id="toolbar-title" class="center sliding">StellarFaucet</div>
+								<span id="indicatorStatus"></span>
+								<div class="right">
+									<a href="#" class="link icon-only refresh-data" style="display: none;"> <i class="icon f7-icons icon-refresh"></i></a>
+									<a href="#" class="link icon-only rate-data">
+										<i class="icon f7-icons icon-rate"></i>
+									</a>
+								</div>
+							</div>
+						</div>
+						<div class="toolbar tabbar custom-colors">
+							<div class="toolbar-inner">
+								<a href="#faucet" class="active tab-link">Faucet</a>
+								<a href="#withdrawal" class="tab-link" data-lang="withdrawal_title">Withdrawal</a>
+								<a href="#history" class="tab-link" data-lang="history_title">History</a>
+								<a href="#extra" class="tab-link" data-lang="extra_title">Extra</a>
+							</div>
+						</div>
+						<div class="tabs-swipeable-wrap">
+							<div class="tabs">
+								<div id="faucet" class="page-content tab active pull-to-refresh-content" data-ptr-distance="55">
+									<div class="pull-to-refresh-layer">
+										<div class="preloader"></div>
+										<div class="pull-to-refresh-arrow"></div>
+									</div>
+									<div class="card" style="background-color: #dcf2f9;color: #5b6a72;">
+										<div class="card-content padding-8">
+											<div class="content-block">
+												<span id="notifMessage"></span>
+												
+											</div>
+										</div>
+									</div>
+									<div class="content-block tiny-content" style="padding-top: 1.5%;">
+										<div class="content-block" align="center" style="margin-top: 8px;">
+											<h1 class="no-margin earningValue">0 XLM</h1>
+											<h2 class="no-margin color-gray earningValueDollar">$ 0</h2>
+											<br>
+											<button id="doClaim" class="button button-raised button-fill button-big disabled" data-lang="claim_now">Claim Now</button>
+
+											<input id="addressInput" type="hidden"/>
+										</div>
+										<br>
+										<div id="box-toggle" class="active">
+											<div class="circle"></div>
+										</div>
+										<div class="menu-bottom toolbar-bottom row active" id="menuBottom">
+											<div class="col-6">
+												<div class="card-content">
+													<div class="content-block tiny">
+														<span data-lang="app_version">App Version</span>
+														<h1 class="no-margin appVersion"></h1>
+													</div>
+												</div>
+											</div>
+											<div class="col-6">
+												<div>
+													<div class="card-content">
+														<div class="content-block tiny">
+															<span data-lang="referral_code">Referral Code</span>
+															<h1 class="no-margin referralCode"></h1>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div id="withdrawal" class="page-content tab">
+									<div class="content-block tiny-content">
+										<div class="card">
+											<div class="card-content padding-8">
+												<div class="progressbar-inline">
+													<div class="row">
+														<div class="col-50">
+															<h2 class="no-margin earningValue">0</h2>
+														</div>
+														<div class="col-50" align="right">
+															<h4 class="no-margin" id="percentValue">0%</h4>
+														</div>
+													</div>
+													<p><span class="progressbar"></span></p>
+												</div>
+											</div>
+										</div>
+										<div class="card">
+											<div class="card-header" data-lang="request_withdrawal">Request Withdrawal</div>
+											<div class="card-content">
+												<div class="content-block">
+													<p>
+														<span data-lang="minimum_withdrawal">Minimum withdrawal is</span> <span id="wdMin"></span> DOGE. <span data-lang="maximum_withdrawal">Maximum withdrawal is</span> <span id="wdMax"></span> DOGE.<span data-lang="fee_withdrawal">Withdrawal Fee is adjust by withdrawal level</p>
+												</div>
+												<div class="list-block inputs-list">
+													<ul>
+														<li>
+															<div class="item-content">
+																<div class="item-inner"> 
+																	<div class="item-title label" data-lang="amount">Amount</div>
+																	<div class="item-input">
+																		<input type="number" id="amountWd" placeholder="0" />
+																	</div>
+																</div>
+															</div>
+														</li>
+														<li>
+															<div class="item-content">
+																<div class="item-inner"> 
+																	<div class="item-title label" data-lang="estimated_receive">Estimated Receive</div>
+																	<div class="item-input disabled">
+																		<input type="text" id="estimatedReceived"/>
+																	</div>
+																</div>
+															</div>
+														</li>
+														<li>
+															<div class="item-content">
+																<div class="item-inner"> 
+																	<div class="item-title label" data-lang="estimated_receive">Google Authenticator</div>
+																	<div id="gauth-token-wrap" class="item-input disabled">
+																		<input type="number" id="gauth-token" placeholder="6 digit code" />
+																	</div>
+																</div>
+															</div>
+														</li>
+														<li>
+															<div class="item-content">
+																<div class="item-inner">
+																	<div class="card no-margin bg-theme--blue">
+																		<div class="card-content padding-8">
+																			<div class="row">
+																				<div class="col-80">
+																					<div>
+																						<span>Need know what is Withdrawal Level actualy mean?</span>
+																					</div>
+																				</div>
+																				<div class="col-20">
+																					<a href="help.html" class="item-link close-panel color-black">Read This</a>
+																				</div>
+																			</div>
+																		</div>
+																	</div>
+																	<br>
+																	<div class="item-title label">Withdrawal Preority</div>
+																	<button id="selectWithdrawalLevel" data-level="normal" class="button button-raised no-fastclick">Normal</button>
+																</div>
+															</div>
+														</li>
+														<li>
+															<div class="item-content">
+																<div class="item-inner" align="right">	
+																	<button id="doWithdrawal" class="button button-raised button-fill no-fastclick" data-lang="send_request">Send Request</button>
+																</div>
+															</div>
+														</li>
+													</ul>
+												</div>
+												<div class="content-padding">
+													<small><span class="badge bg-orange" data-lang="attention">Attention</span> <span data-lang="withdrawal_attention">Withdrawal requests are processed automatically immediantely after submitting a withdrawal request.</span></small>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div id="history" class="page-content tab pull-to-refresh-content" data-ptr-distance="55">
+									<div class="pull-to-refresh-layer">
+										<div class="preloader"></div>
+										<div class="pull-to-refresh-arrow"></div>
+									</div>
+									<div class="content-block tiny-content">
+										<div class="row rowHistory">
+											<div class="col-6">
+												<div class="data-table data-table-init card">
+													<div class="card-header">
+														<div class="data-table-title" data-lang="referral_title">Referrals</div>
+													</div>
+													<div class="content-block">
+														<h2 id="referralCounter">0</h2>
+													</div>
+												</div>
+											</div>
+											<div class="col-6">
+												<div class="data-table data-table-init card">
+													<div class="card-header">
+														<div class="data-table-title" data-lang="avgreward_title">Avg. Reward</div>
+													</div>
+													<div class="content-block">
+														<h2 id="avgReward">0</h2>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="data-table data-table-init card">
+											<div class="card-header">
+												<div class="data-table-title" data-lang="avgreward_title">Statistic Withdrawal Today</div>
+											</div>
+											<div>
+												<table>
+													<tbody>
+														<tr>
+															<td class="label-cell">Total Processed</td>
+															<td id="total_proccess" class="label-cell">0</td>
+														</tr>
+														<tr>
+															<td class="label-cell">Total Stellar Lumens</td>
+															<td id="total_stellar" class="label-cell">0</td>
+														</tr>
+														<tr>
+															<td class="label-cell">Server Time</td>
+															<td id="server_date" class="label-cell">March 23, 2018</td>
+														</tr>
+													</tbody>
+												</table>
+											</div>
+										</div>
+										<div class="card">
+											<div class="card-content padding-8">
+												<div class="row">
+													<div class="col-8">
+														<div>
+															<span>Need know what label actualy mean?</span>
+														</div>
+													</div>
+													<div class="col-4">
+														<a href="help.html" class="item-link close-panel">Show Me</a>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="data-table data-table-init card">
+											<div class="card-header">
+												<div class="data-table-title" data-lang="withdrawal_title">Withdrawal</div>
+											</div>
+											<div class="card-content" id="withdrawalTable">
+												<div class="accordion-list">
+													<div class="withdrawal-item accordion-item content-block">
+														<a href="#" class="item-link">
+															<div class="row big-font">
+																<div class="col-50">
+																	<span>Withdrawal</span>
+																</div>
+																<div class="col-50" align="right">
+																	<span>- Rp. 0</span>
+																</div>
+															</div>
+															<span class="badge">Success</span>
+															<div class="date-time">
+																<i class="icon icon-time"></i> N/A
+															</div>
+														</a>
+														<div class="accordion-item-content">
+															<div>
+																<span class="subtitle">Email</span><br>
+																<span>N/A</span>
+															</div>
+															<div>
+																<span class="subtitle">Alasan</span><br>
+																<span>N/A</span>
+															</div>
+														</div>
+													</div>
+												</div>
+												
+											</div>
+										</div>
+									</div>
+								</div>
+								<div id="extra" class="page-content tab">
+									<img class="corner" src="static/blue.png" alt="Blue" width="120.25px" height="106px">
+									<div class="content-block">
+										<br /><br /><br />
+										<center>
+											<h2 class="no-margin">Extra Earnings</h2>
+											<span>Watch video get extra reward every 4 hours</span>
+
+											<h1 id="tickerReward" class="hide">00:00:00</h1>
+										</center>
+										<p>
+											<a id="buttonReward" class="bg-amber button button-raised button-round button-fill disabled">Claim Extra Reward</a>
+										</p>
+									</div>
+								</div>		
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script type="text/javascript">
+      window.onerror = function(msg, url, line, col, error) {
+         // Note that col & error are new to the HTML 5 spec and may not be 
+         // supported in every browser.  It worked for me in Chrome.
+         var extra = !col ? '' : '\ncolumn: ' + col;
+         extra += !error ? '' : '\nerror: ' + error;
+
+         // You can view the information in an alert to see things working like this:
+         alert("Error: " + msg + "\nurl: " + url + "\nline: " + line + extra);
+
+         // TODO: Report this error via ajax so you can keep track
+         //       of what pages have JS issues
+
+         var suppressErrorAlert = true;
+         // If you return true, then error alerts (like in older versions of 
+         // Internet Explorer) will be suppressed.
+         return suppressErrorAlert;
+      };
+    </script>
+		<!-- Path to Framework7 Library JS-->
+	    <script src="vendors/framework7/dist/js/framework7-17.min.js"></script>
+	    <script src="vendors/framework7/dist/js/framework7.plugin.min.js"></script>
+	    <script src="vendors/nyanStorage/nyanStoragePlus.js"></script>
+		<script src="vendors/qrcode/qrcode.min.js"></script>
+		<script src="vendors/framework7/dist/js/framework7.keypad.min.js"></script>
+		<script src="cordova.js"></script>  
+		<!-- Path to your app js  -->
+<!-- 		<script src="http://192.168.100.9:1337/vorlon.js"></script>
+ -->
+<!-- 		<script src="static/js/dom.js"></script>
+		<script src="static/js/utilitize.js"></script>
+		<script src="static/js/ajax.js"></script>
+		<script src="static/js/events.js"></script> -->
+
+		<script defer src="static/apps.min.js"></script>
+	</body>
+</html>

@@ -1,0 +1,58 @@
+
+<div data-page="2fa" class="page">
+	<div class="navbar">
+		<div class="navbar-inner">
+			<div class="left">
+				<a id="backButton" class="link icon-only"> <i class="icon icon-back"></i></a>
+			</div>
+			<div class="center sliding">Two Factor Authentication</div>
+		</div>
+	</div>
+	<div class="page-content 2fa-screen-content">
+		<div id="main-token" class="content-block">
+			<center>
+				<div class="chip">
+					<div class="chip-media bg-pink">1</div>
+					<div class="chip-label">Initialize</div>
+				</div><br>
+				<span>Scan the QR-Code below with a phone that has <strong>Google Authenticator</strong> installed. You can download Android apps on Google Play Store.</span><br/><br/>
+				<div id="qr-code"></div><br>
+				<span>Can not scan? try entering the code manually, press code to copy.</span>
+				<h1 id="qr-code-text">Loading</h1>
+				<div class="chip">
+					<div class="chip-media bg-pink">2</div>
+					<div class="chip-label">Backup</div>
+				</div><br/>
+				<div class="card color-white" style="background-color: #FF9800;">
+					<div class="card-content padding-8">
+						<div class="content-block">
+							<span id="notifMessage">Please carefuly backup your Google Authenticator Secret Key!</span>
+						</div>
+					</div>
+				</div>
+				<div class="chip">
+					<div class="chip-media bg-pink">2</div>
+					<div class="chip-label">Verify</div>
+				</div><br/>
+				<span>Enter the 6 digit authentication code generated.</span><br />
+				<input onkeydown="limitMe(this)" onkeyup="limitMe(this)" id="enableTokenVerify" class="qr-code-verify-token" type="number" pattern="[0-9]{6}" maxlength="6">
+				<br>
+				<button id="qr-code-verify" class="button button-raised">Verify 2FA</button>
+			</center>
+		</div>
+		<div id="available-token" class="content-block hide">
+			<center>
+				<i class="icon icon-done"></i><br>
+				<span id="qr-code-description"></span>
+				<p>If you want to remove 2FA Feature please input 6 digit number from Google Authenticator.</p>
+				<input onkeydown="limitMe(this)" onkeyup="limitMe(this)" id="removeTokenVerify" class="qr-code-verify-token" type="number" pattern="[0-9]{6}" maxlength="6">
+				<br>
+				<button id="qr-code-remove" class="button button-raised button-fill color-red">Remove 2FA</button>
+			</center>
+		</div>
+
+		<div class="content-block">
+			<div class="list-block-label"><small><span class="badge bg-orange">Attention</span> Use Two Factory Authentication to prevent account usage on other devices and secure your account. Use the Google Authenticator app on your phone to use the OTP (One Time Password) code.</small></div>
+		</div>
+	</div>
+</div>

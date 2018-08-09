@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<widget xmlns   = "http://www.w3.org/ns/widgets"
+    xmlns:gap   = "http://phonegap.com/ns/1.0"
+    id          = "org.nyandevid.dogefaucet"
+    versionCode = "6"
+    version     = "4.0.3" >
+
+  <name>DogeFaucet: Free Dogecoin</name>
+
+  <description>
+      Claim Dogecoin every 4 minute's NyanDev Indonesia
+  </description>
+
+  <author href="https://facebook.com/ryan.hac" email="ryandevstudio@gmail.com">
+      Ryan Aunur Rassyid
+  </author>
+  
+  <preference name="permissions" value="none"/>
+  <preference name='pgb-builder-version' value='2' />
+  <preference name="phonegap-version"  value="cli-8.0.0" />
+  <preference name="android-build-tool" value="gradle" />
+  <!-- Plugins -->
+  
+  <plugin name="cordova-plugin-whitelist" source="npm"/>
+  <plugin name="cordova-plugin-admobpro" source="npm" spec="2.31.6"/>
+  <plugin name="com.verso.cordova.clipboard"  source="npm" spec="0.1.0" />
+  <plugin name="cordova-plugin-google-analytics" source="npm" spec="1.8.3"/>
+  <plugin name="cordova-plugin-device-accounts" source="npm"/>
+  <plugin name="cordova-plugin-local-notification" source="npm" spec="0.9.0-beta.3"/>
+  <plugin name="onesignal-cordova-plugin" spec="2.3.3" source="npm" />
+  <plugin name="cordova-plugin-android-permissions" source="npm" />
+  <plugin name="cordova-plugin-android-imei" source="npm" />
+
+  <access origin="*"/>
+
+  <platform name="android">
+      <preference name="android-minSdkVersion" value="19" /> <!-- Kitkat -->
+
+      <icon density="ldpi" src="res/icons/android/ldpi.png"/>
+      <icon density="mdpi" src="res/icons/android/mdpi.png"/>
+      <icon density="hdpi" src="res/icons/android/hdpi.png"/>
+      <icon density="xhdpi" src="res/icons/android/xhdpi.png"/>
+      <icon density="xxhdpi" src="res/icons/android/xxhdpi.png"/>
+      <icon density="xxxhdpi" src="res/icons/android/xxxhdpi.png"/>
+  </platform>
+
+  <allow-intent href="http://*/*" />
+  <allow-intent href="https://*/*" />
+  <allow-intent href="tel:*" />
+  <allow-intent href="sms:*" />
+  <allow-intent href="mailto:*" />
+  <allow-intent href="market://*" />
+
+</widget>
