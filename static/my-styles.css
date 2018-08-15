@@ -270,9 +270,13 @@ i.icon.icon-rate {
 .item-content.selected {
 	background-color: #E0E0E0;
 }
+.item-content.selected .card-account {
+	border-left: 5px solid #4caf50;
+}
 .card-account {
 	padding: 8px;
 	width: 100%;
+	border-left: 5px solid #ffffff;
 }
 .card-account:not(.selected) {
 	box-shadow: none;
@@ -280,14 +284,40 @@ i.icon.icon-rate {
 .card-account i.icon {
 	margin: 8px;
 }
+.card-account span.badge {
+	font-size: 13px;
+}
 .card-account .address {
 	font-size: 15px;
 	color: #333;
-	font-weight: 500;
+	font-weight: bold;
+	margin-top: 0;
+	display: block;
+	margin-bottom: 8px;
 }
 .card-account .lastLogin {
 	font-style: italic;
-	font-style: 10px;
+	font-size: 12px;
+}
+
+#wdMin, #wdMax {
+	display: block;
+	padding: 8px;
+	border-radius: 3px;
+	background: #eee;
+	font-size: 17px;
+	font-weight: bold;
+	text-align: center;
+}
+
+.withdrawal-description {
+	padding-left: 16px;
+	margin-top: 8px;
+	display: block;
+	font-size: 13px;
+	width: calc(100% - 16px);
+	border-bottom: 1px solid #eee;
+	padding-bottom: 8px;
 }
 .withdrawal-item {
     padding: 8px 16px;
