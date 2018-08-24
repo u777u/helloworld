@@ -9,7 +9,7 @@
 	</div>
 	<div class="page-content resep-screen-content">
 		<div class="content-block">
-			Change
+			You can change the Address or Memo only 3 times.
 		</div>
 		<form class="list-block inputs-list" onsubmit="return false;">
 			<div class="content-block-title">Account Information</div>
@@ -18,7 +18,7 @@
 					<div class="item-inner not-empty-state"> 
 						<div class="item-title label">Stellar Lumen Address</div>
 						<div class="item-input not-empty-state">
-							<input type="text" id="account-address" class="not-empty-state"/>
+							<input type="text" id="account-address" class="not-empty-state disabled"/>
 						</div>
 					</div>
 				</div>
@@ -26,7 +26,7 @@
 					<div class="item-inner not-empty-state"> 
 						<div class="item-title label">Stellar Lumen Memo</div>
 						<div class="item-input not-empty-state">
-							<input type="text" id="account-memo" class="not-empty-state"/>
+							<input type="text" id="account-memo" class="not-empty-state disabled"/>
 						</div>
 					</div>
 				</div>
@@ -34,15 +34,25 @@
 					<div class="item-inner not-empty-state"> 
 						<div class="item-title label">Security PIN</div>
 						<div class="item-input not-empty-state">
-							<input type="text" id="account-change-pin"/>
+							<input type="password" pattern="[0-9]*" inputmode="numeric" id="account-change-pin" placeholder="Security PIN gived after Registrating Account" />
+						</div>
+					</div>
+				</div>
+				<div class="item-content">
+					<div class="item-inner not-empty-state"> 
+						<div class="item-title label">Security 2FA</div>
+						<div class="item-input not-empty-state">
+							<input type="number" pattern="[0-9]*" inputmode="numeric" id="account-factory" placeholder="6 digit number from Google Authenticator" />
 						</div>
 					</div>
 				</div>
 			</div>
-			<p class="buttons-row">
-				<a href="#" class="button button-fill button-raised">Change</a>
-				<a href="#" class="button button-raised">Cancel</a>
+			<div class="content-block">
+				<p class="buttons-row">
+				<a href="#" id="change-button" class="disabled button button-fill button-raised">Change</a>
+				<a href="#" id="cancel-button" class="button button-raised">Cancel</a>
 			</p> 
+			</div>
 		</form>
 	</div>
 </div>

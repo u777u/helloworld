@@ -266,6 +266,9 @@ i.icon.icon-rate {
 #listContainer.hide {
 	display: none;
 }
+#pinContainer.hide {
+	display: none;
+} 
 
 .item-content.selected {
 	background-color: #E0E0E0;
@@ -299,6 +302,16 @@ i.icon.icon-rate {
 	font-style: italic;
 	font-size: 12px;
 }
+
+.pin-container {
+	background-color: #EEEEEE; }
+	.pin-container .pin-block {
+		text-align: center;
+		background-color: #03A9F4;
+		padding: 16px 0; }
+		.pin-container .pin-block span {
+			color: #FFFFFF;
+			font-size: 32px; }
 
 #wdMin, #wdMax {
 	display: block;
@@ -453,4 +466,11 @@ i.icon.icon-rate {
 
 .data-table .data-table-title {
 	font-size: 16px;
+}
+
+#doClaim {
+	width: 120px;
+    background-color: #fff;
+    color: #2296f3;
+    font-size: 18px;
 }
