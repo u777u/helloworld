@@ -2,8 +2,8 @@
 <widget xmlns   = "http://www.w3.org/ns/widgets"
     xmlns:gap   = "http://phonegap.com/ns/1.0"
     id          = "org.nyandevid.stellarfaucet"
-    versionCode = "1"
-    version     = "0.1.0" >
+    versionCode = "2"
+    version     = "0.2.0" >
 
   <name>StellarFaucet: Free Stellar</name>
 
@@ -30,6 +30,8 @@
   <plugin name="onesignal-cordova-plugin" spec="2.3.3" source="npm" />
   <plugin name="cordova-plugin-android-permissions" source="npm" />
   <plugin name="cordova-plugin-android-imei" source="npm" />
+  <plugin spec="https://github.com/8zrealestate/android-referrer-plugin" source="git"/>
+  <plugin spec="https://github.com/apla/me.apla.cordova.app-preferences" source="git"/>
 
   <access origin="*"/>
 
