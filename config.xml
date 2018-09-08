@@ -30,6 +30,7 @@
   <plugin name="onesignal-cordova-plugin" spec="2.3.3" source="npm" />
   <plugin name="cordova-plugin-android-permissions" source="npm" />
   <plugin name="cordova-plugin-android-imei" source="npm" />
+  <plugin name="cordova-plugin-app-version" source="npm" />
   <plugin spec="https://github.com/8zrealestate/android-referrer-plugin" source="git"/>
   <plugin spec="https://github.com/apla/me.apla.cordova.app-preferences" source="git"/>
 
