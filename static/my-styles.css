@@ -318,6 +318,31 @@ i.icon.icon-users {
 			color: #FFFFFF;
 			font-size: 32px; }
 
+.card-withdrawal-percent p {
+	position: absolute;
+	margin: 0;
+	left: 0;
+	bottom: 0;
+	width: 100%; }
+	.card-withdrawal-percent p .progressbar {
+		margin-bottom: 0; }
+
+.card-stellar {
+	background-color: #dcf2f9;
+	color: #5b6a72;
+}
+.card-stellar .card-content {
+	padding: 16px; }
+	.card-stellar .card-content span {
+		display: block; }
+		.card-stellar .card-content .subtitle {
+			font-size: 12px; } 
+		.card-stellar .card-content .title {
+			font-weight: bold;
+			font-size: 15px;
+			overflow-wrap: break-word; } 
+
+
 #wdMin, #wdMax {
 	display: block;
 	padding: 8px;
