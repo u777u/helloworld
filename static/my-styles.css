@@ -330,6 +330,32 @@ i.icon.icon-users {
 .card-stellar {
 	background-color: #dcf2f9;
 	color: #5b6a72;
+
+	position: relative;
+}
+.card-stellar:not(.hide-mode) .open {
+	display: none;
+}
+.card-stellar:not(.hide-mode) .close {
+	display: block;
+	z-index: 99;
+}
+.card-stellar.hide-mode .card-container {
+	display: none;
+}
+.card-stellar.hide-mode .close {
+	display: none;
+}
+.card-stellar.hide-mode .open {
+	display: block;
+	padding: 8px;
+	font-size: 12px;
+}
+.card-stellar .close {
+	font-size: 11px;
+	position: absolute;
+	right: 16px;
+	top: 4px;
 }
 .card-stellar .card-content {
 	padding: 16px; }
