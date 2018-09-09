@@ -340,7 +340,7 @@ i.icon.icon-users {
 	display: block;
 	z-index: 99;
 }
-.card-stellar.hide-mode .card-container {
+.card-stellar.hide-mode .card-content {
 	display: none;
 }
 .card-stellar.hide-mode .close {
