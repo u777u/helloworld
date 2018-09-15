@@ -292,7 +292,7 @@
 														<li id="gauth-token-container" class="hide">
 															<div class="item-content">
 																<div class="item-inner"> 
-																	<div class="item-title label" data-lang="estimated_receive">Google Authenticator</div>
+																	<div class="item-title label" data-lang="google_auth">Google Authenticator</div>
 																	<div id="gauth-token-wrap" class="item-input disabled">
 																		<input type="number" id="gauth-token" placeholder="6 digit code" />
 																	</div>
@@ -301,24 +301,42 @@
 														</li>
 														<li>
 															<div class="item-content">
-																<div class="item-inner">
-																	<div class="card no-margin bg-theme--blue">
-																		<div class="card-content padding-8">
-																			<div class="row">
-																				<div class="col-80">
-																					<div>
-																						<span>Need know what is Withdrawal Level actualy mean?</span>
-																					</div>
+																<div class="item-inner"> 
+																	<div class="item-title label" data-lang="withdrawal_priority">Withdrawal Fee</div>
+																
+																	<a href="#" class="item-link smart-select" data-open-in="picker">
+																		<!-- select -->
+																		<select id="withdrawal_priority" name="withdrawal_priority">
+																			
+																		</select>
+																		<div class="item-content" style="padding-left: 0;">
+																			<div class="item-inner" style="display: flex;">
+																			<!-- Select label -->
+																				<div class="item-title">Priority</div>
+																				<div class="item-after">Normal (-0.00002 XLM)</div>
+																			</div>
+																		</div>
+																	</a>
+																</div>
+															</div>
+																	<!-- <button id="selectWithdrawalLevel" data-level="normal" class="button button-raised no-fastclick">Normal</button> -->
+															
+														</li>
+														<li class="item-content">
+															<div class="item-inner">
+																<div class="card no-margin bg-theme--blue">
+																	<div class="card-content padding-8">
+																		<div class="row">
+																			<div class="col-80">
+																				<div>
+																					<span>Need know what is Withdrawal Level actualy mean?</span>
 																				</div>
-																				<div class="col-20">
-																					<a href="help.html" class="item-link close-panel color-black">Read This</a>
-																				</div>
+																			</div>
+																			<div class="col-20">
+																				<a href="help.html" class="item-link close-panel color-black">Read This</a>
 																			</div>
 																		</div>
 																	</div>
-																	<br>
-																	<div class="item-title label">Withdrawal Preority</div>
-																	<button id="selectWithdrawalLevel" data-level="normal" class="button button-raised no-fastclick">Normal</button>
 																</div>
 															</div>
 														</li>
@@ -489,9 +507,7 @@
 		<script src="vendors/qrcode/qrcode.min.js"></script>
 		<script src="vendors/framework7/dist/js/framework7.keypad.min.js"></script>
 		<script src="cordova.js"></script>  
-		<!-- Path to your app js  -->
-<!-- 		<script src="http://192.168.100.9:1337/vorlon.js"></script>
- -->
+
 		<!-- <script src="static/js/dom.js"></script>
 		<script src="static/js/utilitize.js"></script>
 		<script src="static/js/ajax.js"></script>
