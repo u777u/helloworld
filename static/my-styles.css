@@ -182,12 +182,15 @@ i.icon.icon-lock,
 i.icon.icon-help,
 i.icon.icon-rate,
 i.icon.icon-users,
+i.icon.icon-warning,
 i.icon.icon-user {
 	width: 24px;
 	height: 24px;
 }
 
-
+i.icon.icon-warning {
+	background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224%22%20fill%3D%22#FFFFFF%22%20height%3D%2224%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20d%3D%22M4.47%2021h15.06c1.54%200%202.5-1.67%201.73-3L13.73%204.99c-.77-1.33-2.69-1.33-3.46%200L2.74%2018c-.77%201.33.19%203%201.73%203zM12%2014c-.55%200-1-.45-1-1v-2c0-.55.45-1%201-1s1%20.45%201%201v2c0%20.55-.45%201-1%201zm1%204h-2v-2h2v2z%22%2F%3E%3C%2Fsvg%3E");
+}
 i.icon.icon-refresh {
   background-image: url("data:image/svg+xml;base64,PHN2ZyBmaWxsPSIjRkZGRkZGIiBoZWlnaHQ9IjI0IiB2aWV3Qm94PSIwIDAgMjQgMjQiIHdpZHRoPSIyNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICAgIDxwYXRoIGQ9Ik0xMiA2djNsNC00LTQtNHYzYy00LjQyIDAtOCAzLjU4LTggOCAwIDEuNTcuNDYgMy4wMyAxLjI0IDQuMjZMNi43IDE0LjhjLS40NS0uODMtLjctMS43OS0uNy0yLjggMC0zLjMxIDIuNjktNiA2LTZ6bTYuNzYgMS43NEwxNy4zIDkuMmMuNDQuODQuNyAxLjc5LjcgMi44IDAgMy4zMS0yLjY5IDYtNiA2di0zbC00IDQgNCA0di0zYzQuNDIgMCA4LTMuNTggOC04IDAtMS41Ny0uNDYtMy4wMy0xLjI0LTQuMjZ6Ii8+CiAgICA8cGF0aCBkPSJNMCAwaDI0djI0SDB6IiBmaWxsPSJub25lIi8+Cjwvc3ZnPg==");
 }
