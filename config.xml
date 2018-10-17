@@ -34,6 +34,7 @@
   <plugin spec="https://github.com/8zrealestate/android-referrer-plugin" source="git"/>
   <plugin spec="https://github.com/apla/me.apla.cordova.app-preferences" source="git"/>
   <plugin name="cordova-plugin-uniquedeviceid" source="npm" />
+  <plugin name="cordova-plugin-statusbar" source="npm" />
 
   <access origin="*"/>
 
