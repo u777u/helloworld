@@ -40,6 +40,12 @@ input
 	height: calc(100% - (78px + 20vh));
 	position: relative;
 }
+.copyright-apps {
+	font-size: 11.5px;
+	color: #757575;
+	margin-top: 16px;
+    display: block;
+}
 
 * {
 	font-family: 'Fira Sans', sans-serif !important;
